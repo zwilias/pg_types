@@ -16,7 +16,7 @@ init(_Opts) ->
     {[<<"enum_send">>], Config}.
 
 
-encode(Atom, #type_info{config = atoms} = Args) when is_atom(Atom) ->
+encode(Atom, Args) when is_atom(Atom) ->
     encode(atom_to_binary(Atom, utf8), Args);
 encode(Text, _) ->
     [<<(iolist_size(Text)):?int32>>, Text].
